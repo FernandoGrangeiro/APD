@@ -1,4 +1,4 @@
-package PessoaEClassesFilhas;
+package Modelo;
 
 public class Pessoa {
 

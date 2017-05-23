@@ -1,8 +1,6 @@
-package PessoaEClassesFilhas;
+package Modelo;
 
-import pacote.TelaEntregador;
-import pacote.Pedido;
-import pacote.EnumStatusPedido;
+import Telas.TelaEntregador;
 
 public class Entregador extends Funcionario{
     

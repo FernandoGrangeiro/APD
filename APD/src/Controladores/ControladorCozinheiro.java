@@ -1,4 +1,9 @@
-package pacote;
+package Controladores;
+
+import Telas.TelaCozinheiro;
+import Modelo.EnumStatusPedido;
+import Modelo.Modelo;
+import Modelo.EnumMenuCozinheiro;
 
 public class ControladorCozinheiro {
 
@@ -10,7 +15,8 @@ public class ControladorCozinheiro {
             opcMenu = TelaCozinheiro.showMenu();
             if(opcMenu == EnumMenuCozinheiro.alterarStatusPedido){
                 int indexPedido = TelaCozinheiro.escolhePedido();
-                EnumStatusPedio statusPedido = TelaCozinheiro.escolheNovoStatus();
+                EnumStatusPedido statusPedido = TelaCozinheiro.escolheNovoStatus();
+                Modelo.alteraStatusPedido(indexPedido,statusPedido);
             } 
         } while (opcMenu != EnumMenuCozinheiro.sair);
 

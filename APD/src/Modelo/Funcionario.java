@@ -1,6 +1,4 @@
-package PessoaEClassesFilhas;
-
-import pacote.Pedido;
+package Modelo;
 
 public abstract class Funcionario extends Pessoa{
     

@@ -1,7 +1,4 @@
-package PessoaEClassesFilhas;
-
-import pacote.Pedido;
-import pacote.EnumStatusPedido;
+package Modelo;
 
 public class Cozinheiro extends Funcionario {
 

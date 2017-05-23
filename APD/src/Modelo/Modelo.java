@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pacote;
+package Modelo;
 
 /**
  *
  * @author osniellopesteixeira
  */
 class Modelo {
+
+    static void alteraStatusPedido(int indexPedido, EnumStatusPedido statusPedido) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -1,5 +1,5 @@
 
-package pacote;
+package Telas;
 
 import javax.swing.JOptionPane;
 

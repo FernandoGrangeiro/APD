@@ -1,4 +1,4 @@
-package pacote;
+package Telas;
 
 public class Tela {
 

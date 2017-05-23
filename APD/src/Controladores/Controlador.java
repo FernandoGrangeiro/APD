@@ -1,6 +1,10 @@
-package pacote;
+package Controladores;
 
-import PessoaEClassesFilhas.*;
+import Telas.Tela;
+import Modelo.Pessoa;
+import Modelo.Cozinheiro;
+import Modelo.Cliente;
+import Modelo.Entregador;
 import java.io.*;
 
 public class Controlador {

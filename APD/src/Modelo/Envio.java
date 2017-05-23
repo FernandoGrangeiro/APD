@@ -1,6 +1,6 @@
-package pacote;
+package Modelo;
 
-import PessoaEClassesFilhas.Cliente;
+import Modelo.Cliente;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 

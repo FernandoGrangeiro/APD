@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pacote;
+package Telas;
+
+import Modelo.EnumStatusPedido;
+import Modelo.EnumMenuCozinheiro;
 
 /**
  *
@@ -16,6 +19,10 @@ class TelaCozinheiro {
     }
 
     static int escolhePedido() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static EnumStatusPedido escolheNovoStatus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
