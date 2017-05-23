@@ -1,5 +1,5 @@
 package pacote;
 
-public enum StatusPedido {
+public enum EnumStatusPedido {
     enviado,preparo,espera,finalizado;   
 }

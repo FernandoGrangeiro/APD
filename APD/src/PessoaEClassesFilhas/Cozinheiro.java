@@ -1,7 +1,7 @@
 package PessoaEClassesFilhas;
 
 import pacote.Pedido;
-import pacote.StatusPedido;
+import pacote.EnumStatusPedido;
 
 public class Cozinheiro extends Funcionario {
 
@@ -11,11 +11,11 @@ public class Cozinheiro extends Funcionario {
 
     @Override
     void alteraStatusPedido(Pedido p) {
-        if (p.getStatusPedido().equals(StatusPedido.espera)) {
-            p.statusPedido = StatusPedido.preparo;
+        if (p.getStatusPedido().equals(EnumStatusPedido.espera)) {
+            p.statusPedido = EnumStatusPedido.preparo;
         }
-        if (p.getStatusPedido().equals(StatusPedido.preparo)) {
-            p.statusPedido = StatusPedido.enviado;
+        if (p.getStatusPedido().equals(EnumStatusPedido.preparo)) {
+            p.statusPedido = EnumStatusPedido.enviado;
         }
     }
 }
