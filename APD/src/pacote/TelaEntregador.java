@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class TelaEntregador {
 
    public  static void pedidoInalteravel() {
-       JOptionPane.showMessageDialog(null,"");
+       JOptionPane.showMessageDialog(null,"Pedido não pode ser alterado");
     }
     
 }
