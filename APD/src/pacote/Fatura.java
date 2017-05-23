@@ -1,6 +1,7 @@
 package pacote;
 
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 
 public class Fatura {
@@ -26,8 +27,8 @@ public class Fatura {
     }
     
     public boolean efetuarPagamento(){
-                
-        
+              
+        JOptionPane.showMessageDialog(null,"Pagamento Confirmado");
         
         return true;
     }

@@ -18,6 +18,10 @@ public class Pedido {
         this.cod = cod;
         env = new Envio();
     }
+    
+    public StatusPedido getStatusPedido(){
+        return statusPedido;
+    }
 
     public double calcularCustoTotal() {
         double x = 0;
@@ -32,7 +36,6 @@ public class Pedido {
             if(x==1){
                 JOptionPane.showMessageDialog(null,"Produto cancelado");
             }else{
-                
                 JOptionPane.showMessageDialog(null,"Obrigado");
             }
         }else{

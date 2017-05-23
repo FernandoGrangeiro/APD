@@ -1,6 +1,8 @@
 package PessoaEClassesFilhas;
 
+import pacote.TelaEntregador;
 import pacote.Pedido;
+import pacote.StatusPedido;
 
 public class Entregador extends Funcionario{
     
@@ -10,7 +12,12 @@ public class Entregador extends Funcionario{
 
     @Override
     void alteraStatusPedido(Pedido p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(p.statusPedido.equals(StatusPedido.enviado)){
+            p.statusPedido=StatusPedido.finalizado;
+        }else{
+            TelaEntregador.pedidoInalteravel();
+        }
     }
+    
     
 }
