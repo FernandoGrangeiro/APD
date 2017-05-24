@@ -19,14 +19,18 @@ public class Pedido {
     public boolean estaPago() {
         return pago;
     }
-
+    
+    public void setStatusPedido(StatusPedido st){
+        statusPedido=st;
+    }
+    
     public void setPago(boolean pago) {
         this.pago = pago;
     }
 
-    public Pedido(String cod, int quant) {
+    public Pedido(String cod) {
         dataPedido = Calendar.getInstance();
-        item = new Item(quant);
+       
         this.cod = cod;
         env = new Envio();
     }

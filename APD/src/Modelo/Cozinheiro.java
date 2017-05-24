@@ -9,10 +9,10 @@ public class Cozinheiro extends Funcionario {
     @Override
     void alteraStatusPedido(Pedido p) {
         if (p.getStatusPedido().equals(StatusPedido.emEspera)) {
-            p.statusPedido = StatusPedido.emPreparo;
+            p.setStatusPedido(StatusPedido.emPreparo) ;
         }
         if (p.getStatusPedido().equals(StatusPedido.emPreparo)) {
-            p.statusPedido = StatusPedido.enviado;
+            p.setStatusPedido(StatusPedido.enviado);
         }
     }
 }

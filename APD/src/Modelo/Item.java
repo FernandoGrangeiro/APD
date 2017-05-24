@@ -1,9 +1,7 @@
 package Modelo;
 
-
-public class Item {
-    
-    private int quantidade;
+public class Item {    
+    public int quantidade;
     private Produto_Concreto produto;
     private DecoratorProduto decoratorProduto;
     

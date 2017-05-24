@@ -1,7 +1,7 @@
 package Controladores;
 
 import Modelo.EnumEntregador;
-import Modelo.EnumStatusPedido;
+import Modelo.StatusPedido;
 import Telas.TelaEntregador;
 import Modelo.Modelo;
 
@@ -13,7 +13,7 @@ public class ControladorEntregador {
             opcMenu = TelaEntregador.showMenu();
             if(opcMenu == EnumEntregador.alterarStatusPedido){
                 int indexPedido = TelaEntregador.escolhePedido();
-                EnumStatusPedido statusPedido = TelaEntregador.escolheNovoStatus();
+                StatusPedido statusPedido = TelaEntregador.escolheNovoStatus();
                 Modelo.alteraStatusPedido(indexPedido,statusPedido);
             }
          }while(opcMenu!=EnumEntregador.sair);
