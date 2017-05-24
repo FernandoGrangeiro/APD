@@ -21,21 +21,22 @@ public class Fatura {
         
     }
     
-    public void calcularTaxaEntrega(double valor){
-        
+    public void calcularTaxaEntrega(double valor){ 
         taxaEntrega=valor*0.1;
     }
     
-    public boolean efetuarPagamento(){
-              
-        JOptionPane.showMessageDialog(null,"Pagamento Confirmado");
-        
+    public boolean efetuarPagamento(){     
+        JOptionPane.showMessageDialog(null,"Pagamento Confirmado"); 
         return true;
     }
     
     public void setDataFatura(){
     
         dataFatura=Calendar.getInstance();
+    }
+    
+    public String emitirFatura(){
+        return "Data:"+dataFatura+"\nTotal:"+total+"\ntaxaEntrega"+taxaEntrega;
     }
     
 }

@@ -68,6 +68,11 @@ public class Controlador {
                 i++;
             }
             
-            return  p;
+            
+            
 
         }
+        fr.close();
+        return  p;
+    }
+}

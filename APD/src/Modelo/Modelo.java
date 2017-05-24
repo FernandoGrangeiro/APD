@@ -9,9 +9,9 @@ package Modelo;
  *
  * @author osniellopesteixeira
  */
-class Modelo {
+public class Modelo {
 
-    static void alteraStatusPedido(int indexPedido, EnumStatusPedido statusPedido) {
+    public static void alteraStatusPedido(int indexPedido, EnumStatusPedido statusPedido) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
