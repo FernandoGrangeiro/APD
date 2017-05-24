@@ -5,24 +5,24 @@
  */
 package Telas;
 
-import Modelo.EnumStatusPedido;
+import Modelo.StatusPedido;
 import Modelo.EnumMenuCozinheiro;
 
 /**
  *
  * @author osniellopesteixeira
  */
-class TelaCozinheiro {
+public class TelaCozinheiro {
 
-    static EnumMenuCozinheiro showMenu() {
+    public static EnumMenuCozinheiro showMenu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    static int escolhePedido() {
+    public static int escolhePedido() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    static EnumStatusPedido escolheNovoStatus() {
+    public static StatusPedido escolheNovoStatus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

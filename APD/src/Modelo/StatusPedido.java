@@ -1,5 +1,5 @@
 package Modelo;
 
-public enum EnumStatusPedido {
+public enum StatusPedido {
     enviado,preparo,espera,finalizado;   
 }

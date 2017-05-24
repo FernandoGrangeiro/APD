@@ -7,7 +7,7 @@ public class Pedido {
 
     public Calendar dataPedido;
     public String cod;
-    public EnumStatusPedido statusPedido;
+    public StatusPedido statusPedido;
     public double custoTotal;
     private Item item;
     public Envio env;
@@ -19,7 +19,7 @@ public class Pedido {
         env = new Envio();
     }
     
-    public EnumStatusPedido getStatusPedido(){
+    public StatusPedido getStatusPedido(){
         return statusPedido;
     }
 
@@ -31,7 +31,7 @@ public class Pedido {
     }
 
     public void cancelar() {
-            if (statusPedido.equals(EnumStatusPedido.espera) || statusPedido.equals(EnumStatusPedido.preparo)){
+            if (statusPedido.equals(StatusPedido.espera) || statusPedido.equals(StatusPedido.preparo)){
             int x=JOptionPane.showConfirmDialog(null, "Gostaria de cancelar o produto", "Cancelar", JOptionPane.YES_NO_OPTION);
             if(x==1){
                 JOptionPane.showMessageDialog(null,"Produto cancelado");
@@ -44,7 +44,7 @@ public class Pedido {
     }
 
     public void alterar() {
-        if (statusPedido.equals(EnumStatusPedido.espera)){
+        if (statusPedido.equals(StatusPedido.espera)){
             JOptionPane.showMessageDialog(null, "O que gostaria de alterar do Produto");
             
         }else{
@@ -52,7 +52,7 @@ public class Pedido {
         }
     }
 
-    public EnumStatusPedido alterarStatus(EnumStatusPedido sp) {
+    public StatusPedido alterarStatus(StatusPedido sp) {
         
         return null;
     }

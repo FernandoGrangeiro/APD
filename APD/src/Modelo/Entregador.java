@@ -10,8 +10,8 @@ public class Entregador extends Funcionario{
 
     @Override
     void alteraStatusPedido(Pedido p) {
-        if(p.statusPedido.equals(EnumStatusPedido.enviado)){
-            p.statusPedido=EnumStatusPedido.finalizado;
+        if(p.statusPedido.equals(StatusPedido.enviado)){
+            p.statusPedido=StatusPedido.finalizado;
         }else{
             TelaEntregador.pedidoInalteravel();
         }
