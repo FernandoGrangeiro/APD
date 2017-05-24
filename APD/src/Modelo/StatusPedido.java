@@ -1,5 +1,5 @@
 package Modelo;
 
 public enum StatusPedido {
-    enviado,preparo,espera,finalizado;   
+    enviado,emPreparo,emEspera,finalizado, cancelado;   
 }

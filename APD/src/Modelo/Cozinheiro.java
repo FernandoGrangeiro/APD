@@ -8,10 +8,10 @@ public class Cozinheiro extends Funcionario {
 
     @Override
     void alteraStatusPedido(Pedido p) {
-        if (p.getStatusPedido().equals(StatusPedido.espera)) {
-            p.statusPedido = StatusPedido.preparo;
+        if (p.getStatusPedido().equals(StatusPedido.emEspera)) {
+            p.statusPedido = StatusPedido.emPreparo;
         }
-        if (p.getStatusPedido().equals(StatusPedido.preparo)) {
+        if (p.getStatusPedido().equals(StatusPedido.emPreparo)) {
             p.statusPedido = StatusPedido.enviado;
         }
     }

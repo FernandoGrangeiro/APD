@@ -14,18 +14,32 @@ public class Controlador {
 
         Pessoa usuario = null;
 
-        do {
-            String[] login = Tela.login();
-            for (Pessoa p : usuarios) {
-                if (p.getUsuario().equals(login[0]) && p.getSenha().equals(login[1])) {
-                    usuario = p;
+        boolean sair = false;
+        while (!sair) {
+            //Apresenta login
+            do {
+                String[] login = Tela.login();
+                if (login == null) {
+                    sair = true;
+                    break;
+                }
+                for (Pessoa p : usuarios) {
+                    if (p.getUsuario().equals(login[0]) && p.getSenha().equals(login[1])) {
+                        usuario = p;
+                    }
+                }
+            } while (usuario == null);
+
+            if (!sair) {
+                //Invoca controladores
+                if (usuario instanceof Cliente) {
+                    ControladorUsuario.rodar((Cliente) usuario);
+                } else if (usuario instanceof Cozinheiro) {
+                    ControladorCozinheiro.rodar();
+                } else if (usuario instanceof Entregador) {
+                    ControladorEntregador.rodar();
                 }
             }
-        } while (usuario == null);
-
-        if (usuario instanceof Cliente) {
-            ControladorUsuario controlUser = new ControladorUsuario();
-            controlUser.rodar();
         }
     }
 
@@ -34,14 +48,11 @@ public class Controlador {
         BufferedReader br = new BufferedReader(fr);
         String linha;
 
-        int numLinhas = 0;
-        while ((linha = br.readLine()) != null) {
-            numLinhas++;
-        }
-        fr.close();
+        int numLinhas = 3;
         Pessoa[] p = new Pessoa[numLinhas];
         int i = 0;
-        while ((linha = br.readLine()) == null) {
+        while (i < numLinhas) {
+            linha = br.readLine();
             String[] info = linha.split(";");
             String tipo = info[0];
             String nome = info[1];
@@ -50,29 +61,23 @@ public class Controlador {
             String usuario = info[4];
             String senha = info[5];
             String numCartao = info[6];
+            int id = Integer.parseInt(info[7]);
             if (tipo.equals("Cozinheiro")) {
                 Cozinheiro co = new Cozinheiro(nome, tel, endereco, usuario, senha);
                 p[i] = co;
-                i++;
-
             }
             if (tipo.equals("Cliente")) {
-                Cliente cl = new Cliente(nome, tel, endereco, numCartao, usuario, senha);
+                Cliente cl = new Cliente(nome, tel, endereco, numCartao, usuario, senha, id);
                 p[i] = cl;
-                i++;
             }
 
             if (tipo.equals("Entregador")) {
                 Entregador en = new Entregador(nome, tel, endereco, usuario, senha);
                 p[i] = en;
-                i++;
             }
-            
-            
-            
-
+            i++;
         }
         fr.close();
-        return  p;
+        return p;
     }
 }

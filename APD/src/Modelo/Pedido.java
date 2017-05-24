@@ -1,16 +1,28 @@
 package Modelo;
 
+import static Modelo.StatusPedido.*;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class Pedido {
 
-    public Calendar dataPedido;
-    public String cod;
-    public StatusPedido statusPedido;
-    public double custoTotal;
-    private Item item;
-    public Envio env;
+    private Calendar dataPedido;
+    private String cod;
+    private StatusPedido statusPedido;
+    private double custoTotal;
+    private Item[] item;
+    private Envio env;
+    private FormaDePagamento formaDePagamento;
+    private boolean pago;
+    private int idCliente;
+
+    public boolean estaPago() {
+        return pago;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
 
     public Pedido(String cod, int quant) {
         dataPedido = Calendar.getInstance();
@@ -18,8 +30,8 @@ public class Pedido {
         this.cod = cod;
         env = new Envio();
     }
-    
-    public StatusPedido getStatusPedido(){
+
+    public StatusPedido getStatusPedido() {
         return statusPedido;
     }
 
@@ -31,30 +43,43 @@ public class Pedido {
     }
 
     public void cancelar() {
-            if (statusPedido.equals(StatusPedido.espera) || statusPedido.equals(StatusPedido.preparo)){
-            int x=JOptionPane.showConfirmDialog(null, "Gostaria de cancelar o produto", "Cancelar", JOptionPane.YES_NO_OPTION);
-            if(x==1){
-                JOptionPane.showMessageDialog(null,"Produto cancelado");
-            }else{
-                JOptionPane.showMessageDialog(null,"Obrigado");
+        if (statusPedido == emEspera) {
+            int x = JOptionPane.showConfirmDialog(null, "Gostaria de cancelar o produto", "Cancelar", JOptionPane.YES_NO_OPTION);
+            if (x == 1) {
+                JOptionPane.showMessageDialog(null, "Produto cancelado");
+                this.alterarStatus(cancelado);
+            } else {
+                JOptionPane.showMessageDialog(null, "Obrigado");
             }
-        }else{
-            JOptionPane.showMessageDialog(null,"Produto nao pode ser alterado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Produto nao pode ser alterado");
         }
     }
 
     public void alterar() {
-        if (statusPedido.equals(StatusPedido.espera)){
+        if (statusPedido == emEspera) {
             JOptionPane.showMessageDialog(null, "O que gostaria de alterar do Produto");
-            
-        }else{
-            JOptionPane.showMessageDialog(null,"Produto nao pode ser alterado");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Produto nao pode ser alterado");
         }
     }
 
     public StatusPedido alterarStatus(StatusPedido sp) {
-        
+
         return null;
+    }
+
+    public FormaDePagamento getFormaPagamento() {
+        return this.formaDePagamento;
+    }
+
+    public void add(Item i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void removeItem(Item i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

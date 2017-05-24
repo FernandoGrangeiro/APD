@@ -1,5 +1,6 @@
 package Modelo;
 
-public class Produto {
+public abstract class Produto {
+    String nome;
     
 }

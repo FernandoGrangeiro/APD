@@ -11,16 +11,12 @@ package Modelo;
  */
 public class Modelo {
 
+<<<<<<< HEAD
     public static void alteraStatusPedido(int indexPedido, StatusPedido statusPedido) {
+=======
+    public static void alteraStatusPedido(int indexPedido, EnumStatusPedido statusPedido) {
+>>>>>>> 36243cf618ed992c2e11653cac4addff8b15d4e8
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public static void add(Pedido p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static Pedido[] getPedidos(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
 }
