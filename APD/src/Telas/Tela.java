@@ -13,12 +13,17 @@ public class Tela {
         GridLayout gd = new GridLayout(2,2);
         panel.setLayout(gd);
         panel.add(new JLabel("Usuário"));
-        panel.add(new JTextField());
+        JTextField textFieldUsuario = new JTextField();
+        panel.add(textFieldUsuario);
         panel.add(new JLabel("Senha"));
-        panel.add(new JTextField());
+        JTextField textFieldSenha = new JTextField();
+        panel.add(textFieldSenha);
         
-        JOptionPane.showMessageDialog(null,panel);
-        
+        do{
+            JOptionPane.showMessageDialog(null,panel);
+        }while(textFieldUsuario.getText().equals("") || textFieldUsuario.getText().equals(" ") ||
+                textFieldSenha.getText().equals("") || textFieldSenha.getText().equals(" ") ||
+                textFieldSenha.getText() == null || textFieldUsuario.getText() == null);
         return null;
         
     }
