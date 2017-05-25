@@ -27,10 +27,6 @@ public class Modelo {
     public static Pedido[] getPedidos(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public static Pedido[] getPedido(int cod){
-        return null;
-    }
 
     public static Produto[] getProdutos() throws FileNotFoundException, IOException {
         FileReader fr = new FileReader("Produtos.txt");
@@ -43,10 +39,10 @@ public class Modelo {
         int i = 0;
         while (i < numLinhas) {
             linha = br.readLine();
-            System.out.println(linha);
             String[] info = linha.split(";");
             String nome = info[0];
             String preco = info[1];
+            int id = Integer.parseInt(info[7]);
             ps[i] = new Produto(nome,Double.parseDouble(preco));
             i++;
         }

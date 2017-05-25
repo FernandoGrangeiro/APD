@@ -1,6 +1,5 @@
 package Telas;
 
-import Modelo.EnumEntregador;
 import Modelo.EnumMenuPedido;
 import Modelo.EnumMenuUsuario;
 import static Modelo.EnumMenuUsuario.*;
@@ -11,7 +10,6 @@ import Modelo.Pedido;
 import Modelo.Produto;
 import java.awt.GridLayout;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -35,15 +33,15 @@ public class TelaCliente {
         }
     }
 
-    public static Pedido montaPedido(Produto[] produtos, int idCliente) throws IOException {
+    public static Pedido montaPedido(Produto[] produtos,int idCliente) throws IOException {
         String[] nomesProdutos = new String[produtos.length];
         for (int i = 0; i < produtos.length; i++) {
             nomesProdutos[i] = produtos[i].getNome();
         }
-        ArrayList<Item> itens = new ArrayList<>();
+        ArrayList<Item> itens = new ArrayList<Item>();
         FormaDePagamento formaDePagamento;
         boolean pedidoCompleto = false;
-        do {
+        {
             JPanel panel = new JPanel();
             GridLayout gd = new GridLayout(2, 2);
             panel.setLayout(gd);
@@ -54,33 +52,15 @@ public class TelaCliente {
             JTextField JTFquantia = new JTextField();
             panel.add(JTFquantia);
             JOptionPane.showMessageDialog(null, panel);
-            itens.add(new Item(Integer.parseInt(JTFquantia.getText()), Modelo.Modelo.getProduto(nomesProdutos[JCBproduto.getSelectedIndex()])));
-
-            String[] op = {"Adiconar mais itens", "Fechar pedido"};
-            int i = JOptionPane.showOptionDialog(null, "O que deseja fazer?", "42'foods", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
-            if (i == 1) {
-                pedidoCompleto = true;
-            }
-        } while (!pedidoCompleto);
-        String[] op = {"Pagar Online", "Pagar em dinheiro","Pagar com cartão"};
-        int i = JOptionPane.showOptionDialog(null, "O que deseja fazer?", "42'foods", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
-        switch (i) {
-            case 0:
-                formaDePagamento = online;
-                break;
-            case 1:
-                formaDePagamento = dinheiro;
-                break;
-            case 2:
-                formaDePagamento = cartao;
+            Item i = new Item(Integer.parseInt(JTFquantia.getText()), Modelo.Modelo.getProduto(nomesProdutos[JCBproduto.getSelectedIndex()]));
         }
-        Pedido p = new Pedido(idCliente, itens, formaDePagamento);
-        return p;
+        Pedido p = new Pedido(idCliente,itens,formaDePagamento);
+        while (!pedidoCompleto);
+        return null;
     }
 
     public static boolean pagarOnline() {
-        JOptionPane.showMessageDialog(null,"Pagamento realizado com sucesso!");
-        return true;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public static Pedido escolhePedido(Pedido[] pedidos) {
