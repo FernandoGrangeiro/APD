@@ -10,7 +10,7 @@ import static Modelo.StatusPedido.*;
 import static Modelo.EnumMenuPedido.*;
 import Modelo.Item;
 import Modelo.Produto;
-import Telas.TelaUsuario;
+import Telas.TelaCliente;
 import java.io.IOException;
 
 public class ControladorUsuario {
@@ -18,14 +18,14 @@ public class ControladorUsuario {
     static void rodar(Cliente c) throws IOException {
         EnumMenuUsuario opcMenu;
         do {
-            opcMenu = TelaUsuario.menu();
+            opcMenu = TelaCliente.menu();
             Pedido p;
             switch (opcMenu) {
                 case fazerPedido:
-                    p = TelaUsuario.montaPedido(Modelo.getProdutos());
+                    p = TelaCliente.montaPedido(Modelo.getProdutos());
                     Modelo.add(p);
                     if (p.getFormaPagamento() == online) {
-                        boolean pago = TelaUsuario.pagarOnline();
+                        boolean pago = TelaCliente.pagarOnline();
                         if (pago) {
                             p.setPago(true);
                         }
@@ -33,29 +33,29 @@ public class ControladorUsuario {
                     break;
                 case meusPedidos:
                     Pedido[] pedidos = Modelo.getPedidos(c.getId());
-                    p = TelaUsuario.escolhePedido(pedidos);
+                    p = TelaCliente.escolhePedido(pedidos);
                     if (p.getStatusPedido() != emEspera) {
-                        TelaUsuario.mostraPedidoSemOpcoes(p);
+                        TelaCliente.mostraPedidoSemOpcoes(p);
                     } else {
                         EnumMenuPedido opcPedido;
                         do {
-                            opcPedido = TelaUsuario.mostraPedidoComOpcoes(p);
+                            opcPedido = TelaCliente.mostraPedidoComOpcoes(p);
                             Item i;
                             switch (opcPedido) {
                                 case incluirItem:
-                                    Object[] itemDetalhes = TelaUsuario.incluirItem();
+                                    Object[] itemDetalhes = TelaCliente.incluirItem();
                                     i = new Item(Integer.parseInt((String) itemDetalhes[0]), (Produto) itemDetalhes[1]);
                                     p.add(i);
                                     break;
 
                                 case alterarQuantidadeItem:
-                                    i = TelaUsuario.escolheItemDoPedido(p);
-                                    int qtd = TelaUsuario.novaQuantidade();
+                                    i = TelaCliente.escolheItemDoPedido(p);
+                                    int qtd = TelaCliente.novaQuantidade();
                                     i.quantidade(i);
                                     break;
 
                                 case removerItem:
-                                    i = TelaUsuario.escolheItemDoPedido(p);
+                                    i = TelaCliente.escolheItemDoPedido(p);
                                     p.removeItem(i);
                                     break;
 

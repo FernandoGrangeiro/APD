@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TelaUsuario {
+public class TelaCliente {
 
     public static EnumMenuUsuario menu() {
         String[] op = {"Novo Pedido", "Meus Pedidos", "Sair"};
