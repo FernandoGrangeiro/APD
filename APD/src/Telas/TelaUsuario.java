@@ -83,7 +83,14 @@ public class TelaUsuario {
     }
 
     public static boolean confirmarCancelamento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] op = {"Sim", "Nao"};
+        int i = JOptionPane.showOptionDialog(null, "Confirma cancelamento ?", "42'foods", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
+
+        if (i == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
