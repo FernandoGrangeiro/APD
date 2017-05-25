@@ -2,13 +2,11 @@ package Modelo;
 
 public class Item {    
     public int quantidade;
-    private Produto_Concreto produto;
-    private DecoratorProduto decoratorProduto;
+    private Produto produto;
     
-    public Item(int i,Produto_Concreto produto,DecoratorProduto decorator){
+    public Item(int i,Produto produto){
         quantidade=i;
         this.produto = produto;
-        decoratorProduto = decorator;
     }
 
     public Item(String string, String string0) {

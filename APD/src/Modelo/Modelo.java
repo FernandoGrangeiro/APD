@@ -5,12 +5,17 @@
  */
 package Modelo;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author osniellopesteixeira
  */
 public class Modelo {
-
+    
     public static void alteraStatusPedido(int indexPedido, StatusPedido statusPedido) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -23,8 +28,26 @@ public class Modelo {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static Produto[] getProdutos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Produto[] getProdutos() throws FileNotFoundException, IOException {
+        FileReader fr = new FileReader("Produtos.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String linha;   
+            
+        int numLinhas = Integer.parseInt( br.readLine());
+          
+        Produto[] ps = new Produto[numLinhas];
+        int i = 0;
+        while (i < numLinhas) {
+            linha = br.readLine();
+            String[] info = linha.split(";");
+            String nome = info[0];
+            String preco = info[1];
+            int id = Integer.parseInt(info[7]);
+            ps[i] = new Produto(nome,Double.parseDouble(preco));
+            i++;
+        }
+        fr.close();
+        return ps;
     }
 
 }

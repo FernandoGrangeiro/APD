@@ -47,13 +47,10 @@ public class Controlador {
     private static Pessoa[] instanciaUsuarios() throws FileNotFoundException, IOException {
         FileReader fr = new FileReader("Usuarios.txt");
         BufferedReader br = new BufferedReader(fr);
-        String linha;
-     
-        
+        String linha;   
             
         int numLinhas = Integer.parseInt( br.readLine());
-        
-        
+          
         Pessoa[] p = new Pessoa[numLinhas];
         int i = 0;
         while (i < numLinhas) {

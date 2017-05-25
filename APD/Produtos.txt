@@ -1,0 +1,6 @@
+﻿5
+X-Salada;7.00
+X-Frango;9.00
+X-Tudo;10.00
+Batata-Frita;5.00
+Refrigerante;5.00

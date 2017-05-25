@@ -1,7 +1,6 @@
 package Controladores;
 
 import Modelo.Cliente;
-import Modelo.DecoratorProduto;
 import Modelo.EnumMenuPedido;
 import Modelo.EnumMenuUsuario;
 import static Modelo.FormaDePagamento.online;
@@ -10,12 +9,13 @@ import Modelo.Pedido;
 import static Modelo.StatusPedido.*;
 import static Modelo.EnumMenuPedido.*;
 import Modelo.Item;
-import Modelo.Produto_Concreto;
+import Modelo.Produto;
 import Telas.TelaUsuario;
+import java.io.IOException;
 
 public class ControladorUsuario {
 
-    static void rodar(Cliente c) {
+    static void rodar(Cliente c) throws IOException {
         EnumMenuUsuario opcMenu;
         do {
             opcMenu = TelaUsuario.menu();
@@ -44,7 +44,7 @@ public class ControladorUsuario {
                             switch (opcPedido) {
                                 case incluirItem:
                                     Object[] itemDetalhes = TelaUsuario.incluirItem();
-                                    i = new Item(Integer.parseInt((String) itemDetalhes[0]), (Produto_Concreto) itemDetalhes[1], (DecoratorProduto) itemDetalhes[2]);
+                                    i = new Item(Integer.parseInt((String) itemDetalhes[0]), (Produto) itemDetalhes[1]);
                                     p.add(i);
                                     break;
 

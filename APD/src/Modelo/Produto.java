@@ -1,10 +1,20 @@
 package Modelo;
 
-public abstract class Produto {
+public class Produto {
     String nome;
+    Double preco;
+    
+    public Produto(String nome, Double preco){
+        this.nome = nome;
+        this.preco = preco;
+    }
 
     public String getNome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.nome;
+    }
+    
+    public Double getPreco(){
+        return this.preco;
     }
     
 }
