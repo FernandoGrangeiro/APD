@@ -16,6 +16,17 @@ public class Pedido {
     private FormaDePagamento formaDePagamento;
     private boolean pago;
     private int idCliente;
+    
+    
+    public Pedido(int idCliente, ArrayList<Item> item,FormaDePagamento formaDePagamento){
+            
+        this.idCliente=idCliente;
+        this.item=item;
+        this.formaDePagamento=formaDePagamento;
+        dataPedido = Calendar.getInstance();
+        statusPedido=StatusPedido.emEspera;
+    
+}
 
     public boolean estaPago() {
         return pago;
@@ -29,12 +40,7 @@ public class Pedido {
         this.pago = pago;
     }
 
-    public Pedido(String cod) {
-        dataPedido = Calendar.getInstance();
-       
-        this.cod = cod;
-        env = new Envio();
-    }
+   
 
     public StatusPedido getStatusPedido() {
         return statusPedido;
