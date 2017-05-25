@@ -8,7 +8,6 @@ import javax.swing.JTextField;
 
 public class Tela {
 
-     @SuppressWarnings("empty-statement")
      public static String[] login() {
         JPanel panel = new JPanel();
         GridLayout gd = new GridLayout(2,2);
