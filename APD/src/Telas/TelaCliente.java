@@ -41,7 +41,7 @@ public class TelaCliente {
             nomesProdutos[i] = produtos[i].getNome();
         }
         ArrayList<Item> itens = new ArrayList<>();
-        FormaDePagamento formaDePagamento;
+        FormaDePagamento formaDePagamento = null;
         boolean pedidoCompleto = false;
         do {
             JPanel panel = new JPanel();
@@ -62,8 +62,8 @@ public class TelaCliente {
                 pedidoCompleto = true;
             }
         } while (!pedidoCompleto);
-        String[] op = {"Pagar Online", "Pagar em dinheiro","Pagar com cartão"};
-        int i = JOptionPane.showOptionDialog(null, "O que deseja fazer?", "42'foods", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
+        String[] op = {"Online", "Em Dinheiro", "Cartão (Débito ou Crédito)"};
+        int i = JOptionPane.showOptionDialog(null, "Escolha uma forma de pagamento:", "42'foods", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
         switch (i) {
             case 0:
                 formaDePagamento = online;
@@ -79,12 +79,30 @@ public class TelaCliente {
     }
 
     public static boolean pagarOnline() {
-        JOptionPane.showMessageDialog(null,"Pagamento realizado com sucesso!");
+        JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso!");
         return true;
     }
 
     public static Pedido escolhePedido(Pedido[] pedidos) {
-        String[] 
+        Pedido p = null;
+        if (pedidos == null) {
+            JOptionPane.showMessageDialog(null, "Você não possui pedidos!");
+        } else {
+            String[] pedidosString = new String[pedidos.length];
+            for (int i = 0; i < pedidos.length; i++) {
+                pedidosString[i] = pedidos[i].toString();
+            }
+            JPanel panel = new JPanel();
+            GridLayout gd = new GridLayout(2, 2);
+            panel.setLayout(gd);
+            panel.add(new JLabel("Escolha um pedido:"));
+            JComboBox JCBproduto = new JComboBox(pedidosString);
+            JTextField JTFquantia = new JTextField();
+            panel.add(JTFquantia);
+            JOptionPane.showMessageDialog(null, panel);
+            
+        }
+        return p;
     }
 
     public static void mostraPedidoSemOpcoes(Pedido p) {

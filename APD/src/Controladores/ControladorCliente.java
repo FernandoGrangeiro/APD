@@ -22,7 +22,7 @@ public class ControladorCliente {
             Pedido p;
             switch (opcMenu) {
                 case fazerPedido:
-                    p = TelaCliente.montaPedido(Modelo.getProdutos());
+                    p = TelaCliente.montaPedido(Modelo.getProdutos(),c.getId());
                     Modelo.add(p);
                     if (p.getFormaPagamento() == online) {
                         boolean pago = TelaCliente.pagarOnline();
