@@ -9,46 +9,50 @@ public class Pedido {
 
     private Calendar dataPedido;
     private int cod;
-    private StatusPedido statusPedido;
-    private double custoTotal;
-    private ArrayList <Item> item;
+    public StatusPedido statusPedido;
+    public double custoTotal;
+    private ArrayList<Item> item;
     private Envio env;
     private FormaDePagamento formaDePagamento;
-    private boolean pago;
+    public boolean pago;
     private int idCliente;
-    
-    
-    public Pedido(int idCliente, ArrayList<Item> item,FormaDePagamento formaDePagamento){
-            
-        this.idCliente=idCliente;
-        this.item=item;
-        this.formaDePagamento=formaDePagamento;
+
+    public Pedido(int idCliente, ArrayList<Item> item, FormaDePagamento formaDePagamento) {
+
+        this.idCliente = idCliente;
+        this.item = item;
+        this.formaDePagamento = formaDePagamento;
         dataPedido = Calendar.getInstance();
-        statusPedido=StatusPedido.emEspera;
-    
-}
+        statusPedido = StatusPedido.emEspera;
+
+    }
 
     public boolean estaPago() {
         return pago;
     }
-    
-    public void setStatusPedido(StatusPedido st){
-        statusPedido=st;
+
+    public void setStatusPedido(StatusPedido st) {
+        statusPedido = st;
     }
-    
+
     public void setPago(boolean pago) {
         this.pago = pago;
     }
 
-   
+    public void setaEntrega() {
+        env.setHoraEntrega();
+    }
 
     public StatusPedido getStatusPedido() {
         return statusPedido;
     }
 
     public double calcularCustoTotal() {
-        double x = 0;
-        custoTotal = x * item.getQuantidade();
+        double x = 0, y = 0;
+        for (int i = 0; i < item.size(); i++) {
+            y += item.get(i).getQuantidade();
+        }
+        custoTotal = x * y;
         return custoTotal;
 
     }
@@ -67,6 +71,10 @@ public class Pedido {
         }
     }
 
+    public void setEnvio(Envio env) {
+        this.env = env;
+    }
+
     public void alterar() {
         if (statusPedido == emEspera) {
             JOptionPane.showMessageDialog(null, "O que gostaria de alterar do Produto");
@@ -77,8 +85,7 @@ public class Pedido {
     }
 
     public StatusPedido alterarStatus(StatusPedido sp) {
-
-        return null;
+                return this.statusPedido=sp;
     }
 
     public FormaDePagamento getFormaPagamento() {

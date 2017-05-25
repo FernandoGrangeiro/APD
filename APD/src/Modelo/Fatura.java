@@ -16,19 +16,15 @@ public class Fatura {
     }
     
     
-    public void cacularTotal(double valor){
-        total=taxaEntrega+valor;
+    public void cacularTotal(Pedido p){
+        total=taxaEntrega+p.custoTotal;
         
     }
     
-    public void calcularTaxaEntrega(double valor){ 
-        taxaEntrega=valor*0.1;
+    public void calcularTaxaEntrega(Pedido p){ 
+        taxaEntrega=p.custoTotal*0.1;
     }
     
-    public boolean efetuarPagamento(){     
-        JOptionPane.showMessageDialog(null,"Pagamento Confirmado"); 
-        return true;
-    }
     
     public void setDataFatura(){
     

@@ -16,15 +16,22 @@ import java.io.IOException;
  */
 public class Modelo {
     
-    public static void alteraStatusPedido(int indexPedido, StatusPedido statusPedido) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void alteraStatusPedido(Pedido p, StatusPedido statusPedido) {
+        p.statusPedido=statusPedido;
     }
 
-    public static void add(Pedido p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void add(Pedido p,Pedido[] pedidos) {
+        for(int i=0; i<pedidos.length;i++){
+            if(pedidos[i]==null){
+               pedidos[i]=p;   
+            }
+        }
     }
 
     public static Pedido[] getPedidos(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public static Pedido[] getPedidos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

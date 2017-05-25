@@ -1,13 +1,11 @@
 package Modelo;
 
-import Modelo.Cliente;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class Envio {
 
     public Calendar horaSaida;
-
     public Calendar horaEntrega;
 
     public Envio() {

@@ -3,7 +3,13 @@ package Telas;
 
 import Modelo.StatusPedido;
 import Modelo.EnumMenuCozinheiro;
+import Modelo.Pedido;
+import java.awt.GridLayout;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class TelaCozinheiro {
 
@@ -22,9 +28,21 @@ public class TelaCozinheiro {
     }
     
 
-    public static int escolhePedido() {
-            JOptionPane.showMessageDialog(null,"Pedido foi escolhido");
-return 1;
+    public static Pedido escolhePedido(Pedido [] pedidos) {
+             Pedido p = null;
+        String[] pedidosString = new String[pedidos.length];
+        for (int i = 0; i < pedidos.length; i++) {
+            pedidosString[i] = pedidos[i].toString();
+        }
+        JPanel panel = new JPanel();
+        GridLayout gd = new GridLayout(2, 2);
+        panel.setLayout(gd);
+        panel.add(new JLabel("Escolha um pedido:"));
+        JComboBox JCBproduto = new JComboBox(pedidosString);
+        JTextField JTFquantia = new JTextField();
+        panel.add(JTFquantia);
+        JOptionPane.showMessageDialog(null, panel);
+        return p;
     }
 
     public static StatusPedido escolheNovoStatus() {

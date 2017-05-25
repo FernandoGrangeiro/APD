@@ -20,10 +20,11 @@ public class ControladorCliente {
         do {
             opcMenu = TelaCliente.menu();
             Pedido p;
+            Pedido[] pedidos=null;
             switch (opcMenu) {
                 case fazerPedido:
                     p = TelaCliente.montaPedido(Modelo.getProdutos(),c.getId());
-                    Modelo.add(p);
+                    Modelo.add(p,pedidos);
                     if (p.getFormaPagamento() == online) {
                         boolean pago = TelaCliente.pagarOnline();
                         if (pago) {
@@ -32,7 +33,7 @@ public class ControladorCliente {
                     }
                     break;
                 case meusPedidos:
-                    Pedido[] pedidos = Modelo.getPedidos(c.getId());
+                    pedidos = Modelo.getPedidos(c.getId());
                     p = TelaCliente.escolhePedido(pedidos);
                     if (p.getStatusPedido() != emEspera) {
                         TelaCliente.mostraPedidoSemOpcoes(p);

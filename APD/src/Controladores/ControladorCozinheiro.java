@@ -4,19 +4,21 @@ import Telas.TelaCozinheiro;
 import Modelo.StatusPedido;
 import Modelo.Modelo;
 import Modelo.EnumMenuCozinheiro;
+import Modelo.Pedido;
 
 public class ControladorCozinheiro {
 
     public static void rodar() {
         
         EnumMenuCozinheiro opcMenu;
-        
+        Pedido p;
+        Pedido[] pedidos = Modelo.getPedidos();
         do {
             opcMenu = TelaCozinheiro.showMenu();
             if(opcMenu == EnumMenuCozinheiro.alterarStatusPedido){
-                int indexPedido = TelaCozinheiro.escolhePedido();
+                p = TelaCozinheiro.escolhePedido(pedidos);
                 StatusPedido statusPedido = TelaCozinheiro.escolheNovoStatus();
-                Modelo.alteraStatusPedido(indexPedido,statusPedido);
+                Modelo.alteraStatusPedido(p,statusPedido);
             } 
         } while (opcMenu != EnumMenuCozinheiro.sair);
         
