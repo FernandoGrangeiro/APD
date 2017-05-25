@@ -1,16 +1,17 @@
 package Modelo;
 
 import static Modelo.StatusPedido.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class Pedido {
 
     private Calendar dataPedido;
-    private String cod;
+    private int cod;
     private StatusPedido statusPedido;
     private double custoTotal;
-    private Item[] item;
+    private ArrayList <Item> item;
     private Envio env;
     private FormaDePagamento formaDePagamento;
     private boolean pago;

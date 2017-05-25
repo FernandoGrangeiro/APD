@@ -4,6 +4,7 @@ import Modelo.EnumEntregador;
 import Modelo.StatusPedido;
 import Telas.TelaEntregador;
 import Modelo.Modelo;
+import Modelo.Pedido;
 
 public class ControladorEntregador {
     
@@ -17,6 +18,9 @@ public class ControladorEntregador {
                 Modelo.alteraStatusPedido(indexPedido,statusPedido);
             }
             if(opcMenu == EnumEntregador.verInfoEntrega){
+                int indexPedido = TelaEntregador.escolhePedido();
+                Modelo.getPedidos(indexPedido);
+                
                 
             }
          }while(opcMenu!=EnumEntregador.sair);

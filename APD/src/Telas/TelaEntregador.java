@@ -24,8 +24,8 @@ public class TelaEntregador {
     }
 
     public static int escolhePedido() {
-        JOptionPane.showMessageDialog(null, "Pedido foi escolhido ");
-            return 1;
+     int x=Integer.parseInt(JOptionPane.showInputDialog("Digite o cod do pedido"));
+     return x;
     }
 
     public static StatusPedido escolheNovoStatus() {
@@ -39,6 +39,8 @@ public class TelaEntregador {
             return StatusPedido.enviado;
         }
         return null; 
+        
+        
     }
 
 }
