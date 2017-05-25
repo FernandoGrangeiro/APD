@@ -26,6 +26,18 @@ public class Pedido {
         statusPedido = StatusPedido.emEspera;
 
     }
+    
+    public Pedido(Calendar dataPedido, int cod, StatusPedido statusPedido, double custoTotal, ArrayList<Item> item, Envio env, FormaDePagamento formaDePagamento, boolean pago, int idCliente) {
+        this.dataPedido = dataPedido;
+        this.cod = cod;
+        this.statusPedido = statusPedido;
+        this.custoTotal = custoTotal;
+        this.item = item;
+        this.env = env;
+        this.formaDePagamento = formaDePagamento;
+        this.pago = pago;
+        this.idCliente = idCliente;
+    }
 
     public boolean estaPago() {
         return pago;
@@ -98,6 +110,10 @@ public class Pedido {
 
     public void removeItem(Item i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getIdCliente() {
+        return this.idCliente;
     }
 
 }
