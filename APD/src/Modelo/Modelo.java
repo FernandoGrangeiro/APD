@@ -50,4 +50,13 @@ public class Modelo {
         return ps;
     }
 
+    public static Produto getProduto(String nomeProduto) throws IOException {
+        Produto[] produtos = getProdutos();
+        for(Produto p: produtos){
+            if(p.getNome().equals(nomeProduto));
+            return p;
+        }
+        return null;
+    }
+
 }

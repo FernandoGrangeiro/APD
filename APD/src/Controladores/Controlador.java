@@ -34,7 +34,7 @@ public class Controlador {
             if (!sair) {
                 //Invoca controladores
                 if (usuario instanceof Cliente) {
-                    ControladorUsuario.rodar((Cliente) usuario);
+                    ControladorCliente.rodar((Cliente) usuario);
                 } else if (usuario instanceof Cozinheiro) {
                     ControladorCozinheiro.rodar();
                 } else if (usuario instanceof Entregador) {

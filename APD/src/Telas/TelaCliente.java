@@ -3,10 +3,13 @@ package Telas;
 import Modelo.EnumMenuPedido;
 import Modelo.EnumMenuUsuario;
 import static Modelo.EnumMenuUsuario.*;
+import Modelo.FormaDePagamento;
+import static Modelo.FormaDePagamento.*;
 import Modelo.Item;
 import Modelo.Pedido;
 import Modelo.Produto;
 import java.awt.GridLayout;
+import java.io.IOException;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,27 +33,29 @@ public class TelaCliente {
         }
     }
 
-    public static Pedido montaPedido(Produto[] produtos) {
+    public static Pedido montaPedido(Produto[] produtos,int idCliente) throws IOException {
         String[] nomesProdutos = new String[produtos.length];
         for (int i = 0; i < produtos.length; i++) {
             nomesProdutos[i] = produtos[i].getNome();
         }
-        String[] tamanhos = {"Pequeno","Médio","Grande"};
-        JPanel panel = new JPanel();
-        GridLayout gd = new GridLayout(2, 3);
-        panel.setLayout(gd);
-        panel.add(new JLabel("Escolha um produto:"));
-        JComboBox JCBproduto = new JComboBox(nomesProdutos);
-        panel.add(JCBproduto);
-        panel.add(new JLabel("Escolha o tamanho:"));
-        JComboBox JCBtamanho = new JComboBox(tamanhos);
-        panel.add(JCBtamanho);
-        panel.add(new JLabel("Digite a quantia desejada:"));
-        JTextField JTFquantia = new JTextField();
-        panel.add(JTFquantia);
-        
-        JOptionPane.showMessageDialog(null,panel);
-        
+        ArrayList<Item> itens = new ArrayList<Item>();
+        FormaDePagamento formaDePagamento;
+        boolean pedidoCompleto = false;
+        {
+            JPanel panel = new JPanel();
+            GridLayout gd = new GridLayout(2, 2);
+            panel.setLayout(gd);
+            panel.add(new JLabel("Escolha um produto:"));
+            JComboBox JCBproduto = new JComboBox(nomesProdutos);
+            panel.add(JCBproduto);
+            panel.add(new JLabel("Digite a quantia desejada:"));
+            JTextField JTFquantia = new JTextField();
+            panel.add(JTFquantia);
+            JOptionPane.showMessageDialog(null, panel);
+            Item i = new Item(Integer.parseInt(JTFquantia.getText()), Modelo.Modelo.getProduto(nomesProdutos[JCBproduto.getSelectedIndex()]));
+        }
+        Pedido p = new Pedido(idCliente,itens,formaDePagamento);
+        while (!pedidoCompleto);
         return null;
     }
 

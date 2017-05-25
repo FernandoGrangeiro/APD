@@ -13,7 +13,7 @@ import Modelo.Produto;
 import Telas.TelaCliente;
 import java.io.IOException;
 
-public class ControladorUsuario {
+public class ControladorCliente {
 
     static void rodar(Cliente c) throws IOException {
         EnumMenuUsuario opcMenu;
