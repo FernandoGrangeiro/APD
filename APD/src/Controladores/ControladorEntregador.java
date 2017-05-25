@@ -16,6 +16,9 @@ public class ControladorEntregador {
                 StatusPedido statusPedido = TelaEntregador.escolheNovoStatus();
                 Modelo.alteraStatusPedido(indexPedido,statusPedido);
             }
+            if(opcMenu == EnumEntregador.verInfoEntrega){
+                
+            }
          }while(opcMenu!=EnumEntregador.sair);
         
     }

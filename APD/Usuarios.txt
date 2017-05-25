@@ -1,3 +1,4 @@
-﻿Cliente;ClienteTeste;(12)1234-5678;EnderecoTeste;cliente;cliente;123456789;01
+3
+Cliente;ClienteTeste;(12)1234-5678;EnderecoTeste;cliente;cliente;123456789;01
 Cozinheiro;CozinheiroTeste;(12)1234-5678;EnderecoTeste;cozinheiro;cozinheiro;000000000;00
 Entregador;EntregadorTeste;(12)1234-5678;EnderecoTeste;entregador;entregador;000000000;00

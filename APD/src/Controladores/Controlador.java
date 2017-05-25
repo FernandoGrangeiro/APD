@@ -12,12 +12,13 @@ public class Controlador {
     public static void main(String[] args) throws IOException {
         Pessoa[] usuarios = instanciaUsuarios();
 
-        Pessoa usuario = null;
+        Pessoa usuario;
 
         boolean sair = false;
         while (!sair) {
             //Apresenta login
             do {
+                usuario = null;
                 String[] login = Tela.login();
                 if (login == null) {
                     sair = true;
@@ -47,8 +48,12 @@ public class Controlador {
         FileReader fr = new FileReader("Usuarios.txt");
         BufferedReader br = new BufferedReader(fr);
         String linha;
-
-        int numLinhas = 3;
+     
+        
+            
+        int numLinhas = Integer.parseInt( br.readLine());
+        
+        
         Pessoa[] p = new Pessoa[numLinhas];
         int i = 0;
         while (i < numLinhas) {
@@ -72,8 +77,8 @@ public class Controlador {
             }
 
             if (tipo.equals("Entregador")) {
-                Entregador en = new Entregador(nome, tel, endereco, usuario, senha);
-                p[i] = en;
+               Entregador cl = new Entregador(nome, tel, endereco, usuario, senha);
+                p[i] = cl;
             }
             i++;
         }

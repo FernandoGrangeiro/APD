@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 
 public class Tela {
 
+     @SuppressWarnings("empty-statement")
      public static String[] login() {
         JPanel panel = new JPanel();
         GridLayout gd = new GridLayout(2,2);
@@ -24,7 +25,10 @@ public class Tela {
         }while(textFieldUsuario.getText().equals("") || textFieldUsuario.getText().equals(" ") ||
                 textFieldSenha.getText().equals("") || textFieldSenha.getText().equals(" ") ||
                 textFieldSenha.getText() == null || textFieldUsuario.getText() == null);
-        return null;
+        
+        String[] retorno = {textFieldUsuario.getText(),textFieldSenha.getText()};
+               
+        return retorno;
         
     }
     
