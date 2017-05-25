@@ -43,7 +43,6 @@ public class Modelo {
         int i = 0;
         while (i < numLinhas) {
             linha = br.readLine();
-            System.out.println(linha);
             String[] info = linha.split(";");
             String nome = info[0];
             String preco = info[1];
