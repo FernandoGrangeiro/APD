@@ -8,7 +8,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class TelaEntregador {
 
@@ -40,10 +39,10 @@ public class TelaEntregador {
         panel.setLayout(gd);
         panel.add(new JLabel("Escolha um pedido:"));
         JComboBox JCBproduto = new JComboBox(pedidosString);
-        JTextField JTFquantia = new JTextField();
-        panel.add(JTFquantia);
+        panel.add(JCBproduto);
+
         JOptionPane.showMessageDialog(null, panel);
-        return p;
+        return pedidos[JCBproduto.getSelectedIndex()];
     }
 
     public static StatusPedido escolheNovoStatus() {

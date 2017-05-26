@@ -19,6 +19,7 @@ public class ControladorEntregador {
         Pedido p=null;
         Envio e=null;
         Pedido[] pedidos=null;
+        
         try {
             pedidos = Modelo.getPedidos();
         } catch (IOException ex) {

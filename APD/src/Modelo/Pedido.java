@@ -128,12 +128,12 @@ public class Pedido implements Serializable{
         String x="";
         for(int i =0; i<item.size();i++){
             x+=item.get(i).getProduto();
-            x+=":"+item.get(i).getQuantidade();
+            x+=": "+item.get(i).getQuantidade();
             x+="\n";
             
         }
         int y=dataPedido.get(Calendar.DATE);
-        return "Cod:"+cod+"\nStatusPedido:"+statusPedido+"\nDataPedido:"+y+"Itens"+x;
+        return "Cod: "+cod+"\nStatusPedido: "+statusPedido+"\nDataPedido: "+y+"\nItens "+x;
         
     }
 
