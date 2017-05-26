@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Modelo implements Serializable{
 
@@ -33,13 +34,14 @@ public class Modelo implements Serializable{
         //Grava o objeto cliente no arquivo
         if (pedidos != null) {
             if (pedidos.length != 0) {
-                for (Pedido umPedido : pedidos) {
-                    arrayPedidos.add(umPedido);
-                }
+                arrayPedidos.addAll(Arrays.asList(pedidos));
             }
         }
         
         arrayPedidos.add(p);
+        for(Pedido peiaosdf: arrayPedidos){
+            System.out.println(peiaosdf.toString());
+        }
         
         objGravar.writeObject(arrayPedidos);
         objGravar.flush();
@@ -117,6 +119,7 @@ public class Modelo implements Serializable{
     public static Produto getProduto(String nomeProduto) throws IOException {
         Produto[] produtos = getProdutos();
         for (Produto p : produtos) {
+            System.out.println(p.nome);
             if (p.getNome().equals(nomeProduto));
             return p;
         }

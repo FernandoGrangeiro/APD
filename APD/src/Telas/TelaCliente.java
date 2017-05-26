@@ -8,6 +8,7 @@ import static Modelo.EnumMenuUsuario.*;
 import Modelo.FormaDePagamento;
 import static Modelo.FormaDePagamento.*;
 import Modelo.Item;
+import Modelo.Modelo;
 import Modelo.Pedido;
 import Modelo.Produto;
 import java.awt.GridLayout;
@@ -55,7 +56,9 @@ public class TelaCliente {
             JTextField JTFquantia = new JTextField();
             panel.add(JTFquantia);
             JOptionPane.showMessageDialog(null, panel);
-            itens.add(new Item(Integer.parseInt(JTFquantia.getText()), Modelo.Modelo.getProduto(nomesProdutos[JCBproduto.getSelectedIndex()])));
+            System.out.println(nomesProdutos[JCBproduto.getSelectedIndex()]);
+            System.out.println(Modelo.getProduto(nomesProdutos[JCBproduto.getSelectedIndex()]).getNome());
+            itens.add(new Item(Integer.parseInt(JTFquantia.getText()), Modelo.getProduto(nomesProdutos[JCBproduto.getSelectedIndex()])));
 
             String[] op = {"Adiconar mais itens", "Fechar pedido"};
             int i = JOptionPane.showOptionDialog(null, "O que deseja fazer?", "42'foods", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
