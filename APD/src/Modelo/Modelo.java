@@ -27,15 +27,17 @@ public class Modelo {
 
     public static Pedido[] getPedidos(int id) throws IOException {
         Pedido[] pedidos = getPedidos();
-        if (pedidos != null && pedidos.length != 0) {
-            ArrayList<Pedido> pedidosCliente = new ArrayList<>();
-            for (Pedido p : pedidos) {
-                if (p.getIdCliente() == id) {
-                    pedidosCliente.add(p);
+        if (pedidos != null) {
+            if (pedidos.length != 0) {
+                ArrayList<Pedido> pedidosCliente = new ArrayList<>();
+                for (Pedido p : pedidos) {
+                    if (p.getIdCliente() == id) {
+                        pedidosCliente.add(p);
+                    }
                 }
+                Pedido[] pedidosClienteVetor = pedidosCliente.toArray(new Pedido[pedidosCliente.size()]);
+                return pedidosClienteVetor;
             }
-            Pedido[] pedidosClienteVetor = pedidosCliente.toArray(new Pedido[pedidosCliente.size()]);
-            return pedidosClienteVetor;
         }
         return null;
 
@@ -68,28 +70,24 @@ public class Modelo {
     }
 
     public static Produto[] getProdutos() throws FileNotFoundException, IOException {
-        ObjectInputStream in = null;
-        boolean oef = false;
-        ArrayList<Produto> produtos = new ArrayList<>();
-        Produto p = null;
-        try {
-            in = new ObjectInputStream(new FileInputStream("Pedidos.txt"));
-            while (oef == false) {
-                try {
-                    p = (Produto) in.readObject();
-                    produtos.add(p);
-                } catch (IOException | ClassNotFoundException e) {
-                    System.out.println("erro durante a leitura");
-                    in.close();
-                    break;
-                }
-                in.close();
-            }
-        } catch (EOFException e) {
-            System.out.println("erro durante a leitura EOFException");
+        FileReader fr = new FileReader("Produtos.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String linha;
+
+        int numLinhas = Integer.parseInt(br.readLine());
+
+        Produto[] ps = new Produto[numLinhas];
+        int i = 0;
+        while (i < numLinhas) {
+            linha = br.readLine();
+            String[] info = linha.split(";");
+            String nome = info[0];
+            String preco = info[1];
+            ps[i] = new Produto(nome, Double.parseDouble(preco));
+            i++;
         }
-        Produto[] produtosArray = produtos.toArray(new Produto[produtos.size()]);
-        return produtosArray;
+        fr.close();
+        return ps;
     }
 
     public static Produto getProduto(String nomeProduto) throws IOException {
