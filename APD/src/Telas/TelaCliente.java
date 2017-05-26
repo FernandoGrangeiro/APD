@@ -91,7 +91,7 @@ public class TelaCliente {
         } else {
             String[] pedidosString = new String[pedidos.length];
             for (int i = 0; i < pedidos.length; i++) {
-                pedidosString[i] = pedidos[i].toString();
+                pedidosString[i] = pedidos[i].toStringSimples();
             }
             JPanel panel = new JPanel();
             GridLayout gd = new GridLayout(2, 2);
@@ -106,7 +106,7 @@ public class TelaCliente {
     }
 
     public static void mostraPedidoSemOpcoes(Pedido p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(null, p.toString());
     }
 
     public static EnumMenuPedido mostraPedidoComOpcoes(Pedido p) {

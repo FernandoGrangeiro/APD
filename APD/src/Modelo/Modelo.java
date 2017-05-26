@@ -22,6 +22,8 @@ public class Modelo implements Serializable{
 
     public static void add(Pedido p) throws FileNotFoundException, IOException {
         Pedido[] pedidos = getPedidos();
+        ArrayList<Pedido> arrayPedidos = new ArrayList<>();
+                
         //Gera o arquivo para armazenar o objeto
         FileOutputStream arquivoGrav = new FileOutputStream("Pedidos.txt");
 
@@ -32,11 +34,14 @@ public class Modelo implements Serializable{
         if (pedidos != null) {
             if (pedidos.length != 0) {
                 for (Pedido umPedido : pedidos) {
-                    objGravar.writeObject(umPedido);
+                    arrayPedidos.add(umPedido);
                 }
             }
         }
-        objGravar.writeObject(p);
+        
+        arrayPedidos.add(p);
+        
+        objGravar.writeObject(arrayPedidos);
         objGravar.flush();
 
         objGravar.close();
@@ -68,13 +73,11 @@ public class Modelo implements Serializable{
         ObjectInputStream in = null;
         boolean oef = false;
         ArrayList<Pedido> pedidos = new ArrayList<>();
-        Pedido p = null;
         try {
             in = new ObjectInputStream(new FileInputStream("Pedidos.txt"));
             while (oef == false) {
                 try {
-                    p = (Pedido) in.readObject();
-                    pedidos.add(p);
+                    pedidos = (ArrayList<Pedido>) in.readObject();
                 } catch (IOException | ClassNotFoundException e) {
                     System.out.println("erro durante a leitura");
                     in.close();
