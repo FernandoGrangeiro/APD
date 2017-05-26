@@ -91,7 +91,7 @@ public class TelaCliente {
         } else {
             String[] pedidosString = new String[pedidos.length];
             for (int i = 0; i < pedidos.length; i++) {
-                pedidosString[i] = pedidos[i].toStringSimples();
+                pedidosString[i] = pedidos[i].toString();
             }
             JPanel panel = new JPanel();
             GridLayout gd = new GridLayout(2, 2);
@@ -106,12 +106,11 @@ public class TelaCliente {
     }
 
     public static void mostraPedidoSemOpcoes(Pedido p) {
-       JOptionPane.showMessageDialog(null, p.toString());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public static EnumMenuPedido mostraPedidoComOpcoes(Pedido p) {
         String[] op = {"Voltar"};
-        JPanel panel = new JPanel();
         int i = JOptionPane.showOptionDialog(null, "Confirma cancelamento ?", "42'foods", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
         return voltar;
     }

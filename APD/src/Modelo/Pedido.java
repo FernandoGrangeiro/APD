@@ -119,7 +119,9 @@ public class Pedido implements Serializable{
     
     public String toStringSimples(){
         
-        return "Data Pedido:"+dataPedido+"Cod:"+cod;
+        int y=dataPedido.get(Calendar.DATE);
+        
+        return "Data Pedido:"+y+"Cod:"+cod;
     }
     
     public String toString(){
@@ -130,7 +132,8 @@ public class Pedido implements Serializable{
             x+="\n";
             
         }
-        return "Cod:"+cod+"\nStatusPedido:"+statusPedido+"\nDataPedido:"+dataPedido+"Itens"+x;
+        int y=dataPedido.get(Calendar.DATE);
+        return "Cod:"+cod+"\nStatusPedido:"+statusPedido+"\nDataPedido:"+y+"Itens"+x;
         
     }
 
