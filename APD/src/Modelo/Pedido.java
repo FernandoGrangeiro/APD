@@ -1,11 +1,12 @@
 package Modelo;
 
 import static Modelo.StatusPedido.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
-public class Pedido {
+public class Pedido implements Serializable{
 
     private Calendar dataPedido;
     private int cod;

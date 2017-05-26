@@ -9,20 +9,41 @@ import java.util.Calendar;
 import static Modelo.StatusPedido.*;
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class Modelo {
+public class Modelo implements Serializable{
 
     public static void alteraStatusPedido(Pedido p, StatusPedido statusPedido) {
         p.statusPedido = statusPedido;
     }
 
-    public static void add(Pedido p, Pedido[] pedidos) {
-        for (int i = 0; i < pedidos.length; i++) {
-            if (pedidos[i] == null) {
-                pedidos[i] = p;
+    public static void add(Pedido p) throws FileNotFoundException, IOException {
+        Pedido[] pedidos = getPedidos();
+        //Gera o arquivo para armazenar o objeto
+        FileOutputStream arquivoGrav = new FileOutputStream("Pedidos.txt");
+
+        //Classe responsavel por inserir os objetos
+        ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+
+        //Grava o objeto cliente no arquivo
+        if (pedidos != null) {
+            if (pedidos.length != 0) {
+                for (Pedido umPedido : pedidos) {
+                    objGravar.writeObject(umPedido);
+                }
             }
         }
+        objGravar.writeObject(p);
+        objGravar.flush();
+
+        objGravar.close();
+
+        arquivoGrav.flush();
+
+        arquivoGrav.close();
     }
 
     public static Pedido[] getPedidos(int id) throws IOException {
