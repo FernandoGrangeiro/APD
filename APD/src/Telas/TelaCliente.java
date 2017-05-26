@@ -1,7 +1,8 @@
 package Telas;
 
-import Modelo.EnumEntregador;
+import static Modelo.EnumMenuPedido.*;
 import Modelo.EnumMenuPedido;
+import static Modelo.EnumMenuPedido.voltar;
 import Modelo.EnumMenuUsuario;
 import static Modelo.EnumMenuUsuario.*;
 import Modelo.FormaDePagamento;
@@ -29,7 +30,7 @@ public class TelaCliente {
             case 1:
                 return meusPedidos;
             case 2:
-                return sair;
+                return EnumMenuUsuario.sair;
             default:
                 return null;
         }
@@ -96,11 +97,10 @@ public class TelaCliente {
             GridLayout gd = new GridLayout(2, 2);
             panel.setLayout(gd);
             panel.add(new JLabel("Escolha um pedido:"));
-            JComboBox JCBproduto = new JComboBox(pedidosString);
-            JTextField JTFquantia = new JTextField();
-            panel.add(JTFquantia);
+            JComboBox JCBpedido = new JComboBox(pedidosString);
+            panel.add(JCBpedido);
             JOptionPane.showMessageDialog(null, panel);
-            
+            p = pedidos[JCBpedido.getSelectedIndex()];
         }
         return p;
     }
@@ -110,7 +110,9 @@ public class TelaCliente {
     }
 
     public static EnumMenuPedido mostraPedidoComOpcoes(Pedido p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] op = {"Voltar"};
+        int i = JOptionPane.showOptionDialog(null, "Confirma cancelamento ?", "42'foods", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
+        return voltar;
     }
 
     public static String[] incluirItem() {
