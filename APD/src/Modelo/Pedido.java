@@ -121,7 +121,7 @@ public class Pedido implements Serializable{
         
         int y=dataPedido.get(Calendar.DATE);
         
-        return "Data Pedido:"+y+"Cod:"+cod;
+        return "Cod:"+cod+"Data Pedido:"+y;
     }
     
     public String toString(){
