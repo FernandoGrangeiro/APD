@@ -17,10 +17,10 @@ public class TelaCozinheiro {
         String[] op = {"Alterar Status", "Sair"};
         int i = JOptionPane.showOptionDialog(null, "O QUE ESCOLHER", "42'foods", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
         
-        if (i == 1) {
+        if (i ==0) {
             return EnumMenuCozinheiro.alterarStatusPedido;
         }
-        if (i == 2) {
+        if (i == 1) {
             return EnumMenuCozinheiro.sair;
         }
         return null;
