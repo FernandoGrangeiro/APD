@@ -7,6 +7,9 @@ import Modelo.StatusPedido;
 import Telas.TelaEntregador;
 import Modelo.Modelo;
 import Modelo.Pedido;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ControladorEntregador {
@@ -15,7 +18,12 @@ public class ControladorEntregador {
         EnumEntregador opcMenu;
         Pedido p=null;
         Envio e=null;
-        Pedido[] pedidos = Modelo.getPedidos();
+        Pedido[] pedidos=null;
+        try {
+            pedidos = Modelo.getPedidos();
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorEntregador.class.getName()).log(Level.SEVERE, null, ex);
+        }
          do {
             opcMenu = TelaEntregador.showMenu();
             
@@ -56,4 +64,3 @@ public class ControladorEntregador {
         
     }
 }
-

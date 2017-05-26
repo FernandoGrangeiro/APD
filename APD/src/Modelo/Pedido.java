@@ -116,5 +116,22 @@ public class Pedido implements Serializable{
     public int getIdCliente() {
         return this.idCliente;
     }
+    
+    public String toStringSimples(){
+        
+        return "Data Pedido:"+dataPedido+"Cod:"+cod;
+    }
+    
+    public String toString(){
+        String x="";
+        for(int i =0; i<item.size();i++){
+            x+=item.get(i).getProduto();
+            x+=":"+item.get(i).getQuantidade();
+            x+="\n";
+            
+        }
+        return "Cod:"+cod+"\nStatusPedido:"+statusPedido+"\nDataPedido:"+dataPedido+"Itens"+x;
+        
+    }
 
 }
