@@ -1,6 +1,5 @@
 package Telas;
 
-
 import Modelo.StatusPedido;
 import Modelo.EnumMenuCozinheiro;
 import Modelo.Pedido;
@@ -39,10 +38,10 @@ public class TelaCozinheiro {
         panel.setLayout(gd);
         panel.add(new JLabel("Escolha um pedido:"));
         JComboBox JCBproduto = new JComboBox(pedidosString);
-        JTextField JTFquantia = new JTextField();
-        panel.add(JTFquantia);
+        panel.add(JCBproduto);
+        
         JOptionPane.showMessageDialog(null, panel);
-        return p;
+        return pedidos[JCBproduto.getSelectedIndex()];
     }
 
     public static StatusPedido escolheNovoStatus() {
